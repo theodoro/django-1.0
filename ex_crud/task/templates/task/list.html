@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Cadastros</title>
+</head>
+<body>
+    <h3>Olá da página de testes</h3>
+
+    <form method="POST" action="/">
+        {% csrf_token %}
+        {{form.title}}
+        <input type="submit" name="create Task" value="Cadastrar">
+    </form>
+{%for tasks in task%}
+<div>
+    <a href="{% url 'update_task' task.id %}">Atualizar dados</a>
+    <p>{{tasks}}</p>
+</div>
+{%endfor%}
+</body>
+</html>
